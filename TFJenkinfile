@@ -1,36 +1,21 @@
 pipeline {
+    agent any
 
-   agent any
-
-   stages {
-     stage('Cleanup'){
-        steps {
-          echo 'Starting execution: Cleaning workspace..,'
-          cleanWS()
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
         }
-     }
-       stage('Build'){
-          steps {
-            echo 'Building..,'
-            #python ./app/my_source.py
-          }
-       }
-       stage('Test'){
-           steps {
-            echo 'Testing...'
-           }
-       }
-       stage ('Deploy'){
-           steps {
-             echo 'Deploying...'
-           }
-       }
-       stage('Cleanup'){
-          steps {
-            echo 'Ending execution: Cleaning workspace..,'
-            cleanWS()
-          }
-       }
-   }
-
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
