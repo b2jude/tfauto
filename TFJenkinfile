@@ -1,36 +1,21 @@
-pipeline {
-    agent any
-
+pipeline { 
+    agent any 
     stages {
-        stage('Terraform init') {
-            
-        stage ('Cleanup') {
+        stage('WS Clean') { 
+            steps { 
+                cleanWs() 
+            }
+        }
+        stage('Terraform init'){
             steps {
-                echo 'Starting execution: Cleaning workspace..,'
-                cleanWs()
-         }
-            steps {
-                echo 'initializing..'
                 sh 'terraform init'
+                sh 'terraform plan
             }
         }
-        stage(' Plan') {
+        stage('WS clean-end') {
             steps {
-                echo 'Planning..'
-               sh 'terraform plan'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage ('Cleanup') {
-            steps {
-                echo 'Ending execution: Cleaning workspace..,'
                 cleanWs()
-         }
-    }
-    
+            }
+        }
     }
 }
