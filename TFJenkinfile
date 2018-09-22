@@ -6,7 +6,7 @@ pipeline {
      stage('Cleanup'){
         steps {
           echo 'Starting execution: Cleaning workspace..,'
-          cleanWS()
+          
         }
      }
        stage('Build'){
@@ -28,7 +28,7 @@ pipeline {
        stage('Cleanup'){
           steps {
             echo 'Ending execution: Cleaning workspace..,'
-            cleanWS()
+            
           }
        }
    }
