@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Terraform init'){
             steps {
-                terraform init
-                terraform plan
+                terraform 'init'
+                terraform 'plan'
             }
         }
         stage('WS clean-end') {
