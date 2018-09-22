@@ -6,10 +6,9 @@ pipeline {
                 cleanWs() 
             }
         }
-        stage('Terraform init'){
+        stage('Terraform-init-plan'){
             steps {
-                terraform 'init'
-                terraform 'plan'
+                sh 'deploy.sh'
             }
         }
         stage('WS clean-end') {
