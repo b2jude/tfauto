@@ -3,6 +3,12 @@ pipeline {
 
     stages {
         stage('Terraform init') {
+            
+        stage ('Cleanup') {
+            steps {
+                echo 'Starting execution: Cleaning workspace..,'
+                cleanWs()
+         }
             steps {
                 echo 'initializing..'
                 sh 'terraform init'
@@ -19,5 +25,10 @@ pipeline {
                 echo 'Deploying....'
             }
         }
+        stage ('Cleanup') {
+            steps {
+                echo 'Ending execution: Cleaning workspace..,'
+                cleanWs()
+         }
     }
 }
