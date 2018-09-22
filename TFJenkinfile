@@ -5,13 +5,13 @@ pipeline {
         stage('Terraform init') {
             steps {
                 echo 'initializing..'
-                terraform init
+                sh 'terraform init'
             }
         }
         stage(' Plan') {
             steps {
                 echo 'Planning..'
-                terraform plan
+               sh 'terraform plan'
             }
         }
         stage('Deploy') {
