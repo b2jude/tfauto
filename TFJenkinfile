@@ -9,6 +9,7 @@ pipeline {
         stage('Terraform-init-plan'){
             steps {
                 sh '''echo \'executing terraform...\'
+                 def tfHome = tool name: 'Terraform', type: 'com.cloudbees.jenkins.plugins.customtools.CustomTool'
                       python --version
                       terraform --version
                       echo \'executing pass init\'
