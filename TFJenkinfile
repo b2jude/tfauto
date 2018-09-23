@@ -8,7 +8,12 @@ pipeline {
         }
         stage('Terraform-init-plan'){
             steps {
-                sh 'deploy.sh'
+                sh '''echo \'executing terraform...\'
+                      terraform init
+                      echo \'executing pass init\'
+
+                      terraform plan'''
+
             }
         }
         stage('WS clean-end') {
