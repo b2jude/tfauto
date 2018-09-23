@@ -9,9 +9,10 @@ pipeline {
         stage('Terraform-init-plan'){
             steps {
                 sh '''echo \'executing terraform...\'
+                      python --version
                       terraform init
                       echo \'executing pass init\'
-                      python --version
+                      
 
                       terraform plan'''
 
