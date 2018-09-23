@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh '''echo \'executing terraform...\'
                       python --version
-                      terraform init
+                      terraform --version
                       echo \'executing pass init\'
                       
 
