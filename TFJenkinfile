@@ -6,7 +6,7 @@ pipeline {
         stage('Terraform-init-plan'){
             steps {
                 
-                sh "$WORKSPACE/deploy.sh"
+                sh "$WORKSPACE/deploy.sh ${COMMAND}"
             }
         }
         
