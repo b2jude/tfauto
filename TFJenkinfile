@@ -1,11 +1,7 @@
 pipeline { 
     agent any 
     stages {
-        stage('WS Clean') { 
-            steps { 
-                cleanWs() 
-            }
-        }
+        
         
         stage('Terraform-init-plan'){
             steps {
