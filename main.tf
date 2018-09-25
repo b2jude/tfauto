@@ -6,9 +6,9 @@ provider "aws" {
 terraform {
   required_version = ">= 0.9.1"
   backend "s3" {
-    profile = "admin"
+    profile = "developer"
     region = "us-east-1"
-    bucket = "tfstatesbucket"
+    bucket = "tf-developer"
     #key = "stack-state.tfstate"
     key = "development/terraform.tfstate"
   }
@@ -165,7 +165,7 @@ resource "aws_launch_configuration" "asg_lc" {
 resource "aws_route53_zone" "revportzone" {
 
   name = "${var.env_alias}revportzone.local"
-  vpc_id = "vpc-40849a3b"
+  vpc_id = "vpc-cd16c4b7"
   tags {
     Name = "${var.env_alias}_revportzone"
   }
