@@ -9,8 +9,7 @@ pipeline {
         
         stage('Terraform-init-plan'){
             steps {
-                #sh "terraform --version"
-                #sh "/usr/local/bin/terraform init /var/lib/jenkins/workspace/test-pipeline"
+                
                 sh "./deploy.sh"
             }
         }
