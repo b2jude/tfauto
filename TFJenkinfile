@@ -9,7 +9,12 @@ pipeline {
                 sh "$WORKSPACE/deploy.sh"
             }
         }
-        
+        stage('Cleanup'){
+            steps {
+                
+                cleanWS()
+            }
+        }
        
     }
 }
