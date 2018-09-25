@@ -2,6 +2,6 @@
 
 echo 'executing terraform...'
 echo 'executing pass init'
-
+terraform init
 
 
