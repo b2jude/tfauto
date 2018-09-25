@@ -5,7 +5,7 @@ echo 'executing pass init'
 /usr/local/bin/terraform init
 if [ "${COMMAND}" = 'plan'];
  then
-   /usr/local/bin/terraform $COMMAND -input=false
+   /usr/local/bin/terraform ${COMMAND} -input=false
 else
 /usr/local/bin/terraform ${COMMAND} -auto-approve
 #/usr/local/bin/terraform $apply -auto-approve 
