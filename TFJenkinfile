@@ -14,10 +14,6 @@ pipeline {
             }
         }
         
-        stage('WS clean-end') {
-            steps {
-                cleanWs()
-            }
-        }
+       
     }
 }
