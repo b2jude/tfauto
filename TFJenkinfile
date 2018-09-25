@@ -10,6 +10,7 @@ pipeline {
         stage('Terraform-init-plan'){
             steps {
                 sh "/home/jenkins/terraform --version"
+                sh "/home/jenkins/terraform init"
             }
         }
         
