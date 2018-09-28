@@ -8,16 +8,18 @@ variable "myami" {
 }
 
 #variable "userdata" {}
-
+variable "vpc_id" {
+  default = "vpc-cd16c4b7"
+  }
 
 variable "env_alias" {}
 
 variable "asg_availability_zones" {
     description = "A comma seperated list string of AZs the ASG will be associated with"
-     default = "us-east-1a,us-east-1c,us-east-1d"
+     default = "us-east-1a,us-east-1b,us-east-1c"
 }
 
 variable "asg_vpc_zone_subnets" {
     description = "A comma seperated list string of VPC subnets to associate with ASG, should correspond with var.availability_zones zones"
-    default = "subnet-98c492d2,subnet-6f59df08,subnet-d374f9fd"
+    default = "subnet-98c492d2,subnet-cf0e8d93,subnet-6f59df08"
 }
