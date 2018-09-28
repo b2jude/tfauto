@@ -8,7 +8,7 @@ variable "myami" {
 }
 
 #variable "userdata" {}
-variable "vpc_id" {
+variable "vpcid" {
   default = "vpc-cd16c4b7"
   }
 
