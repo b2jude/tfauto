@@ -77,7 +77,7 @@ resource "aws_iam_instance_profile" "asg_profile" {
 
 resource "aws_security_group" "as_security_grp" {
   name = "${var.env_alias}_asg_sg"
-
+  vpc_id = "${vpcid}"
   ingress {
     from_port 	= 22
     to_port 	= 22
