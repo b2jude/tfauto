@@ -1,7 +1,8 @@
 #!/bin/bash
 COMMAND=$1
-echo 'executing terraform...'
-echo 'executing pass init'
+echo 'terraform path..'
+which terraform
+
 /usr/local/bin/terraform init
 if [ "${COMMAND}" = 'plan' ];
  then
