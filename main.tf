@@ -117,7 +117,7 @@ resource "aws_launch_configuration" "asg_lc" {
     #subnets = ["${var.asg_vpc_zone_subnets}"]
      subnets = ["${split(",", var.asg_vpc_zone_subnets)}"]
     security_groups = ["${aws_security_group.as_security_grp.id}"]
-    internal = true
+    internal = false
     listener {
       instance_port = 80
       instance_protocol = "http"
