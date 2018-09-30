@@ -189,3 +189,4 @@ resource "aws_route53_record" "cname" {
   ttl     = "5"
 
   records        = ["${aws_elb.asg-elb.dns_name}"]
+  }
