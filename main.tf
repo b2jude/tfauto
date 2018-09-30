@@ -161,7 +161,7 @@ resource "aws_launch_configuration" "asg_lc" {
 
 }
 
-
+/*
 resource "aws_route53_zone" "revportzone" {
 
   name = "${var.env_alias}revportzone.local"
@@ -180,3 +180,12 @@ resource "aws_route53_record" "cname" {
 
   records        = ["${aws_elb.asg-elb.dns_name}"]
 }
+*/
+  
+resource "aws_route53_record" "cname" {
+  zone_id = "Z10TFNYAKKKBN"
+  name    = "webapp.bmonoue.net"
+  type    = "CNAME"
+  ttl     = "5"
+
+  records        = ["${aws_elb.asg-elb.dns_name}"]
