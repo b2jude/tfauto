@@ -19,6 +19,9 @@ export TF_VAR_appname=${APP_NAME}
      echo "RELEASE: ${RELEASE}"
      echo "`pwd`"
      rm -Rf ./.terraform
+     echo "`pwd`"
+     
+     which terraform
      
      terraform init \
      -backend-config="bucket=tf-developer" \
