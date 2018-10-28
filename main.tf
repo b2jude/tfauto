@@ -3,6 +3,7 @@ provider "aws" {
   profile = "developer"
 }
 
+/*
 terraform {
   required_version = ">= 0.9.1"
   backend "s3" {
@@ -14,6 +15,7 @@ terraform {
   }
 
 }
+*/
 
 #command line
 #$ terraform init -backend-config="bucket=tfstatesbucket" -backend-config="key=terraform.tfstate" -backend-config="region=us-east-1" -backend-config="encrypt=true"
@@ -181,7 +183,7 @@ resource "aws_route53_record" "cname" {
   records        = ["${aws_elb.asg-elb.dns_name}"]
 }
 */
-  
+
 resource "aws_route53_record" "cname" {
   zone_id = "Z10TFNYAKKKBN"
   name    = "webapp.bmonoue.net"
