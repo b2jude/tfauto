@@ -2,7 +2,7 @@
 COMMAND=$1
 echo 'terraform path.hello.'
 which terraform
-export TF_VAR_region=$REGION
+export TF_VAR_region=${REGION}
 
 tf_init () {
      echo "****** backend configuration options ************"
