@@ -13,6 +13,11 @@ export TF_VAR_appname=${APP_NAME}
      echo "key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate"
      echo "profile=developer"
      echo "${REGION}"
+     echo "${APP_NAME}"
+     echo "${SUBSYSTEM}"
+     echo "${ENVIRONMENT}"
+     echo "${RELEASE}"
+     
      terraform init \
      -backend-config="bucket=tf-developer" \
      -backend-config="key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate" \
