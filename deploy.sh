@@ -4,7 +4,7 @@ echo 'terraform path.hello.'
 which terraform
 export TF_VAR_region=${REGION}
 
-tf_init () {
+
      echo "****** backend configuration options ************"
 
      data "aws_s3_bucket" "backendbucket" {
@@ -21,10 +21,10 @@ tf_init () {
      -backend-config="key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
-}
+  
 
 
-tf_init
+
 #/usr/local/bin/terraform init
 #terraform init
 
