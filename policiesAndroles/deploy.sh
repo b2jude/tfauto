@@ -26,7 +26,7 @@ export TF_VAR_appname=${APP_NAME}
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
 
-
+    echo "backend created"
 
 
 #/usr/local/bin/terraform init
