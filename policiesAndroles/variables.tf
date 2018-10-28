@@ -1,0 +1,7 @@
+
+variable "appname" {}
+
+
+variable "region" {
+  
+  }

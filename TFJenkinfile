@@ -1,21 +1,25 @@
-pipeline { 
-    agent any 
+pipeline {
+    agent any
     stages {
-        
-        
+
+
         stage('Terraform-init-plan'){
             steps {
-                
-                sh "$WORKSPACE/deploy.sh ${COMMAND}"
+                sh """
+                echo "executing deployment of subsystem"
+                cd ${SUBSYSTEM}
+                chmod +x ./deploy.sh
+                ./deploy.sh ${COMMAND} ${APP_NAME} ${SUBSYSTEM} ${REGION} ${ENVIRONMENT} ${RELEASE}
+               """ 
             }
         }
-        
+
         stage('Cleanup'){
             steps {
-                
+
                 cleanWs()
             }
         }
-       
+
     }
 }
