@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo "executing deployment of subsystem"
                 sh "chmod +x $WORKSPACE/${SUBSYSTEM}/deploy.sh"
-                cd sh "$WORKSPACE/${SUBSYSTEM}"
+                sh "cd $WORKSPACE/${SUBSYSTEM}"
                 sh "./deploy.sh ${COMMAND}"
                 
             }
