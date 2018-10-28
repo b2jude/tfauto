@@ -23,3 +23,7 @@ variable "asg_vpc_zone_subnets" {
     description = "A comma seperated list string of VPC subnets to associate with ASG, should correspond with var.availability_zones zones"
     default = "subnet-98c492d2,subnet-cf0e8d93,subnet-6f59df08"
 }
+
+variable "region" {
+  
+  }
