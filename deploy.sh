@@ -20,9 +20,10 @@ tf_init () {
 }
 
 
-
+tf_init
 #/usr/local/bin/terraform init
 #terraform init
+
 if [ "${COMMAND}" = 'plan' ];
  then
    #/usr/local/bin/terraform ${COMMAND} -input=false
