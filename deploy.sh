@@ -8,15 +8,15 @@ tf_init () {
      data "aws_s3_bucket" "backendbucket" {
      bucket = "tf-developer"
      }
-     echo "bucket arn : ${data.aws_s3_bucket.backendbucket.name}"
+     echo "bucket=${data.aws_s3_bucket.backendbucket.bucket}"
      echo "key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate"
      echo "profile=developer"
      echo "${REGION}"
      terraform init \
-     backend-config="bucket=${data.aws_s3_bucket.backendbucket.name}" \
-     backend-config="key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate"
-     backend-config="region=${REGION}"
-     backend-config="profile=developer"
+     -backend-config="bucket=${data.aws_s3_bucket.backendbucket.bucket}" \
+     -backend-config="key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate" \
+     -backend-config="region=${REGION}" \
+     -backend-config="profile=developer"
 }
 
 
