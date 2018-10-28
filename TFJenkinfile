@@ -5,11 +5,9 @@ pipeline {
 
         stage('Terraform-init-plan'){
             steps {
-                echo " cd to subsystem"
-                sh "cd $WORKSPACE/${SUBSYSTEM}"
-                echo "cd to subsystem successful"
-                sh "./deploy.sh ${COMMAND}"
-
+                echo " executing deployment of subsystem"
+                sh "$WORKSPACE/${SUBSYSTEM}/deploy.sh ${COMMAND}"
+                
             }
         }
 
