@@ -5,8 +5,8 @@ pipeline {
 
         stage('Terraform-init-plan'){
             steps {
-                echo " executing deployment of subsystem"
-                sh  chmod + x "$WORKSPACE/${SUBSYSTEM}/deploy.sh
+                echo "executing deployment of subsystem"
+                sh "chmod + x $WORKSPACE/${SUBSYSTEM}/deploy.sh"
                 sh "$WORKSPACE/${SUBSYSTEM}/deploy.sh ${COMMAND}"
                 
             }
