@@ -26,7 +26,7 @@ export TF_VAR_appname=${APP_NAME}
      terraform init \
      -backend-config="bucket=tf-developer" \
      -backend-config="key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate" \
-     -backend-config="region=${REGION}" \
+     -backend-config="region=us-east-1" \
      -backend-config="profile=developer"
 
     echo "backend created"
