@@ -7,11 +7,7 @@ export TF_VAR_region=${REGION}
 
      echo "****** backend configuration options ************"
 
-     data "aws_s3_bucket" "backendbucket" {
-     bucket = "tf-developer"
-     provider = "aws.dev_account"
-     }
-
+     
      echo "bucket=tf-developer"
      echo "key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate"
      echo "profile=developer"
