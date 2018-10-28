@@ -17,6 +17,7 @@ export TF_VAR_appname=${APP_NAME}
      echo "${SUBSYSTEM}"
      echo "${ENVIRONMENT}"
      echo "${RELEASE}"
+     rm -Rf ./.terraform
      
      terraform init \
      -backend-config="bucket=tf-developer" \
