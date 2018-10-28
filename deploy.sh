@@ -12,12 +12,12 @@ tf_init () {
      provider = "aws.dev_account"
      }
 
-     echo "bucket=${data.aws_s3_bucket.backendbucket.bucket}"
+     echo "bucket=${data.aws_s3_bucket.backendbucket.id}"
      echo "key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate"
      echo "profile=developer"
      echo "${REGION}"
      terraform init \
-     -backend-config="bucket=${data.aws_s3_bucket.backendbucket.bucket}" \
+     -backend-config="bucket=${data.aws_s3_bucket.backendbucket.id}" \
      -backend-config="key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
