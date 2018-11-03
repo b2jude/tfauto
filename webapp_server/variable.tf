@@ -28,8 +28,8 @@ variable "region" {}
 
 locals {
   webapp_stacklabels = {
-     "appname" = "${var.webapp_appname}"
-      "release" = "${var.release}"
-      "region" =  "${var.region}"
+     appname = "${var.webapp_appname}"
+      release = "${var.release}"
+      region =  "${var.region}"
   }
 }

@@ -9,7 +9,7 @@ variable "region" {
 locals = {
 
 stack_labels = {
-    "appname" = "${var.appname}"
-    "release" = "${var.release}"
+    appname = "${var.appname}"
+    release = "${var.release}"
    }
 }
