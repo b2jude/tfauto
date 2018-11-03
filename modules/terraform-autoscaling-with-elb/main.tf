@@ -2,7 +2,7 @@
 
 # The user data is backed inside the blue and green images. No nned to add user data here
 resource "aws_launch_configuration" "asg_lc" {
-  name = "${lookup(var.stack_labels, "appname")}.v.{lookup(var.stack_labels, "release")}_asg_lc"
+  name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_asg_lc"
   image_id = "${var.ami_id}"
   instance_type = "${var.instancetype}"
   security_groups = ["${var.instance_securitygroup}"]
@@ -52,7 +52,7 @@ resource "aws_launch_configuration" "asg_lc" {
 
 
   resource "aws_autoscaling_group" "web_appasg" {
-    #depends_on = ["aws_launch_configuration.asg_lc"]
+    depends_on = ["aws_launch_configuration.asg_lc"]
     name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")_asg"
     #availability_zones = ["${split(",", var.asg_availability_zones)}"]
     #vpc_zone_identifier = ["${split(",", var.asg_vpc_zone_subnets)}"]
