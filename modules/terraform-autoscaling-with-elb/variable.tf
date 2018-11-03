@@ -2,9 +2,6 @@ variable "stack_labels" {
   type = "map"
 }
 
-variable "vpcid" {
-
-}
 
 variable "ami_id" {
 

@@ -16,7 +16,6 @@ variable "webapp_lbport" {}
 variable "webapp_lbprotocol" {}
 variable "webapp_healthythreshold" {}
 variable "webapp_unhealthythreshold" {}
-variable "webapp_unhealthythreshold" {}
 variable "webapp_max_size" {}
 variable "webapp_min_size" {}
 variable "webapp_desirecapacity" {}
