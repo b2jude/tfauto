@@ -8,20 +8,20 @@ data "aws_security_group" "webapp-sg" {
 }
 
 data "aws_iam_instance_profile" "ec2_profile" {
-  name = "${lookup(stack_labels,"appname" )}_${lookup(stack_labels,"release")}_asg_profile"
+  name = "${lookup(local.stack_labels,"appname" )}_${lookup(local.stack_labels,"release")}_asg_profile"
 }
 
 data "aws_subnet" "public_subnet_az_a" {
- tags =  {  Name = "${lookup(stack_labels,"appname" )}_${lookup(stack_labels,"region")}_a_public_subnet" }
+ tags =  {  Name = "${lookup(local.stack_labels,"appname" )}_${lookup(local.stack_labels,"region")}_a_public_subnet" }
       }
 
 data "aws_subnet" "public_subnet_az_b" {
- tags =  {  Name = "${lookup(stack_labels,"appname" )}_${lookup(stack_labels,"region")}_b_public_subnet" }
+ tags =  {  Name = "${lookup(local.stack_labels,"appname" )}_${lookup(local.stack_labels,"region")}_b_public_subnet" }
   }
 
 
 data "aws_subnet" "public_subnet_az_c" {
-   tags =  {  Name = "${lookup(stack_labels,"appname" )}_${lookup(stack_labels,"region")}_c_public_subnet" }
+   tags =  {  Name = "${lookup(local.stack_labels,"appname" )}_${lookup(local.stack_labels,"region")}_c_public_subnet" }
 }
 
 data "aws_ami" "ec2-linux" {

@@ -3,7 +3,7 @@ variable "appname" {}
 variable "release" {}
 
 variable "region" {
-  
+
   }
 
 locals = {
