@@ -1,6 +1,6 @@
 resource "aws_iam_role" "asg_ec2_role" {
     provider = "aws.dev_account"
-    name = "${var.appname}_asg_ec2_role"
+    name = "${lookup(stack_labels,"appname" )}_${lookup(stack_labels,"release")}_asg_ec2_role"
     assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -21,7 +21,7 @@ EOF
 
 resource "aws_iam_role_policy" "asg_policy" {
     provider = "aws.dev_account"
-    name = "${var.appname}_asg_policy"
+    name = "${lookup(stack_labels,"appname" )}_${lookup(stack_labels,"release")}_asg_policy"
     role = "${aws_iam_role.asg_ec2_role.id}"
     policy = <<EOF
 {
@@ -44,7 +44,6 @@ EOF
 
 
 resource "aws_iam_instance_profile" "asg_profile" {
-    provider = "aws.dev_account"
-    name = "${var.appname}_asg_profile"
+    name = "${lookup(stack_labels,"appname" )}_${lookup(stack_labels,"release")}_asg_profile"
     role = "${aws_iam_role.asg_ec2_role.name}"
 }

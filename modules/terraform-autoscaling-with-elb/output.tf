@@ -1,7 +1,15 @@
 output "elb_name" {
-  value = ["${aws_elb.asg-elb.name}"]
+  value = ["${aws_elb.asg-elb.*.name}"]
 }
 
 output "asg_name" {
-    value = "${var.appname}_asg"
+    value = "${aws_autoscaling_group.web_appasg.*.name}"
+}
+
+output "elb_dnsname" {
+    value = "${aws_elb.asg-elb.dns_name}"
+}
+
+output "elb_launch_config_name" {
+    value = "${aws_launch_configuration.asg_lc.name}"
 }
