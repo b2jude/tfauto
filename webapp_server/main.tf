@@ -14,7 +14,7 @@ module "webappasg" {
   healthythreshold = "${var.webapp_healthythreshold}"
   unhealthythreshold = "${var.webapp_unhealthythreshold}"
   timeout = "${var.webapp_timeout}"
-  maxsize = "$(var.webapp_max_size)"
+  maxsize = "${var.webapp_max_size}"
   minsize = "${var.webapp_min_size}"
   desirecapacity = "${var.webapp_desirecapacity}"
   instancetype = "${var.webapp_instancetype}"
