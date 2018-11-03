@@ -6,8 +6,8 @@ variable "webapp_instancetype" {}
 
 #variable "webapp_instanceprofile" {}
 
-variable "webapp_userdata" {}
-variable "webapp_instance_securitygroup" {}
+#variable "webapp_userdata" {}
+#variable "webapp_instance_securitygroup" {}
 #variable "webapp_asg_subnets" {}
 variable "webapp_instanceport" {}
 variable "webapp_instanceprotocol" {}
@@ -19,7 +19,7 @@ variable "webapp_unhealthythreshold" {}
 variable "webapp_max_size" {}
 variable "webapp_min_size" {}
 variable "webapp_desirecapacity" {}
-variable "web_timeout" {}
+variable "webapp_timeout" {}
 variable "webapp_interval" {}
 
 
