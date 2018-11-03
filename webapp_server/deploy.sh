@@ -18,10 +18,10 @@ export TF_VAR_webapp_appname=${APP_NAME}
 
 if [ "${COMMAND}" = 'plan' ];
  then
-
+   terraform get -update
    terraform ${COMMAND} -input=false
 else
-
+terraform get -update
 terraform ${COMMAND} -auto-approve
 
 fi;

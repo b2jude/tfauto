@@ -46,7 +46,7 @@ resource "aws_launch_configuration" "asg_lc" {
           key = "Name"
           value = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")"
           propagate_at_lauch = true
-        }
+        },
     ]
   }
 
