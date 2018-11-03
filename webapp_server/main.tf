@@ -16,5 +16,5 @@ module "webappasg" {
   timeout = "${webapp_timeout}"
   max_size = "$(webapp_max_size)"
   min_size = "${webapp_min_size}"
-  desirecapacity "${webapp_desirecapacity}"
+  desirecapacity = "${webapp_desirecapacity}"
 }
