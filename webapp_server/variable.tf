@@ -1,14 +1,14 @@
-variable "webapp_vpcid" {}
+#variable "webapp_vpcid" {}
 
 variable "webapp_appname" {}
-variable "webapp_ami_id" {}
+#variable "webapp_ami_id" {}
 variable "webapp_instancetype" {}
 
-variable "webapp_instanceprofile" {}
+#variable "webapp_instanceprofile" {}
 
 variable "webapp_userdata" {}
 variable "webapp_instance_securitygroup" {}
-variable "webapp_asg_subnets" {}
+#variable "webapp_asg_subnets" {}
 variable "webapp_instanceport" {}
 variable "webapp_instanceprotocol" {}
 

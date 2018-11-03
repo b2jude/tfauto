@@ -17,4 +17,5 @@ module "webappasg" {
   maxsize = "$(webapp_max_size)"
   minsize = "${webapp_min_size}"
   desirecapacity = "${webapp_desirecapacity}"
+  instancetype = "${webapp_instancetype}"
 }
