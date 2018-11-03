@@ -30,31 +30,31 @@ variable "instanceport" {
 variable "instanceprotocol" {}
 
 variable "lbport" {
-  default = 80
+  default = "80"
 }
 variable "lbprotocol" {
   default = "HTTP"
 }
 variable "healthythreshold" {
-   default = 5
+   default = "3"
 }
 variable "unhealthythreshold" {
-   default = 5
+   default = "3"
 }
 
 variable "timeout" {
-  default = 20
+  default = "20"
 }
 variable "interval" {
-  default = 30
+  default = "30"
 }
 
 variable "maxsize" {
-    default = 1
+    default = "1"
  }
 variable "minsize" {
-   default = 1
+   default = "1"
 }
 variable "desirecapacity" {
-  default = 1
+  default = "1"
 }
