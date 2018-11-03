@@ -15,7 +15,7 @@ resource "aws_launch_configuration" "asg_lc" {
   }
 
   resource "aws_elb" "asgelb" {
-    name = "${lookup(var.stack_labels, "appname")}_elb"
+    name = "${lookup(var.stack_labels, "appname")}-elb"
     #subnets = ["${var.asg_vpc_zone_subnets}"]
      #subnets = ["${split(",", var.asg_vpc_zone_subnets)}"]
      vpc_zone_identifier = ["${var.asg_subnets}"]
