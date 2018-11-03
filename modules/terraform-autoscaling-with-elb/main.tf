@@ -53,7 +53,7 @@ resource "aws_launch_configuration" "asg_lc" {
 
   resource "aws_autoscaling_group" "web_appasg" {
     depends_on = ["aws_launch_configuration.asg_lc"]
-    name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")_asg"
+    name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_asg"
     #availability_zones = ["${split(",", var.asg_availability_zones)}"]
     #vpc_zone_identifier = ["${split(",", var.asg_vpc_zone_subnets)}"]
     vpc_zone_identifier = ["${var.asg_subnets}"]
@@ -72,6 +72,6 @@ resource "aws_launch_configuration" "asg_lc" {
           key = "Name"
           value = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}"
           propagate_at_lauch = true
-        },
+        }
     ]
 }
