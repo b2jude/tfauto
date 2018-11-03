@@ -18,5 +18,5 @@ module "webappasg" {
   minsize = "${var.webapp_min_size}"
   desirecapacity = "${var.webapp_desirecapacity}"
   instancetype = "${var.webapp_instancetype}"
-  interval = "${webapp_interval}"
+  interval = "${var.webapp_interval}"
 }
