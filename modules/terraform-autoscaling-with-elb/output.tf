@@ -1,5 +1,5 @@
 output "elb_name" {
-  value = ["${aws_elb.asg-elb.*.name}"]
+  value = ["${aws_elb.asgelb.*.name}"]
 }
 
 output "asg_name" {
@@ -7,7 +7,7 @@ output "asg_name" {
 }
 
 output "elb_dnsname" {
-    value = "${aws_elb.asg-elb.dns_name}"
+    value = "${aws_elb.asgelb.dns_name}"
 }
 
 output "elb_launch_config_name" {

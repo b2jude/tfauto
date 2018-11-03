@@ -14,7 +14,7 @@ resource "aws_launch_configuration" "asg_lc" {
 
   }
 
-  resource "aws_elb" "asg-elb" {
+  resource "aws_elb" "asgelb" {
     name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_elb"
     #subnets = ["${var.asg_vpc_zone_subnets}"]
      #subnets = ["${split(",", var.asg_vpc_zone_subnets)}"]
@@ -64,7 +64,7 @@ resource "aws_launch_configuration" "asg_lc" {
     health_check_grace_period = 500
     health_check_type = "ELB"
     force_delete = true
-    load_balancers = ["${aws_elb.asg-elb.name}"]
+    load_balancers = ["${aws_elb.asgelb.name}"]
     launch_configuration = "${aws_launch_configuration.asg_lc.name}"
     enabled_metrics = ["GroupMinSize","GroupMaxSize","GroupInServiceInstances","GroupPendingInstances","GroupTerminatingInstances","GroupStandbyInstances","GroupTotalInstances","GroupDesiredCapacity"]
     tags = [
