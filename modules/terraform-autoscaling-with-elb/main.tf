@@ -33,7 +33,7 @@ resource "aws_launch_configuration" "asg_lc" {
       unhealthy_threshold = "${var.unhealthythreshold}"
       timeout = "${var.timeout}"
       target = "HTTP:80/index.html"
-      interval = "${interval}"
+      interval = "${var.interval}"
     }
 
     cross_zone_load_balancing = true
