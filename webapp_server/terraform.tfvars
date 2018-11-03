@@ -12,6 +12,6 @@ webapp_healthythreshold = 3
 webapp_unhealthythreshold = 3
 max_size = 1
 min_size = 1
-desiredcapacity = 1
+desirecapacity = 1
 webapp_timeout = 20
 webapp_interval = 30

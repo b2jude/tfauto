@@ -19,7 +19,7 @@ variable "webapp_unhealthythreshold" {}
 variable "webapp_unhealthythreshold" {}
 variable "webapp_max_size" {}
 variable "webapp_min_size" {}
-variable "webapp_desiredcapacity" {}
+variable "webapp_desirecapacity" {}
 variable "web_timeout" {}
 variable "webapp_interval" {}
 
