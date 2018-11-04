@@ -55,8 +55,8 @@ resource "aws_launch_configuration" "asg_lc" {
     depends_on = ["aws_launch_configuration.asg_lc"]
     name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_asg"
     #availability_zones = ["${split(",", var.asg_availability_zones)}"]
-    #vpc_zone_identifier = ["${split(",", var.asg_vpc_zone_subnets)}"]
-    vpc_zone_identifier = ["${var.asg_subnets}"]
+    vpc_zone_identifier = ["${split(",", var.asg_subnets)}"]
+    #vpc_zone_identifier = ["${var.asg_subnets}"]
     max_size = "${var.maxsize}"
     min_size = "${var.minsize}"
     desired_capacity = "${var.desirecapacity}"
