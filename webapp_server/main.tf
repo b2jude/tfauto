@@ -1,4 +1,11 @@
 
+
+provider "aws" {
+  region = "${var.region}"
+  profile = "developer"
+  alias   = "dev_account"
+}
+
 module "webappasg" {
  source = "../modules/terraform-autoscaling-with-elb"
  stack_labels = "${local.webapp_stacklabels}"
@@ -19,5 +26,4 @@ module "webappasg" {
   desirecapacity = "${var.webapp_desirecapacity}"
   instancetype = "${var.webapp_instancetype}"
   interval = "${var.webapp_interval}"
-  region = "S{var.region}"
 }
