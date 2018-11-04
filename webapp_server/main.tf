@@ -19,4 +19,5 @@ module "webappasg" {
   desirecapacity = "${var.webapp_desirecapacity}"
   instancetype = "${var.webapp_instancetype}"
   interval = "${var.webapp_interval}"
+  region = "S{var.region}"
 }
