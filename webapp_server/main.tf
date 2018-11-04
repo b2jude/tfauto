@@ -14,7 +14,7 @@ module "webappasg" {
  instance_securitygroup =  ["${data.aws_security_group.webapp-sg.id}"]
   instanceprofile = "${data.aws_iam_instance_profile.ec2_profile.name}"
   userdata = "${file("install_webapp.sh")}"
-  asg_subnets = "${data.aws_subnet.public_subnet_az_a.id}","${data.aws_subnet.public_subnet_az_b.id}","data.aws_subnet.public_subnet_az_c.id"
+  asg_subnets = "${data.aws_subnet.public_subnet_az_a.id}","${data.aws_subnet.public_subnet_az_b.id}","${data.aws_subnet.public_subnet_az_c.id}"
   instanceport = "${var.webapp_instanceport}"
   instanceprotocol = "${var.webapp_instanceprotocol}"
   lbport = "${var.webapp_lbport}"
