@@ -22,7 +22,7 @@ variable "instance_securitygroup" {
   type = "list"
 }
 variable "asg_subnets" {
-type = "list"
+#type = "list"
 }
 variable "instanceport" {
 
