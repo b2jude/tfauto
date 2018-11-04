@@ -8,7 +8,7 @@ data "aws_security_group" "webapp-sg" {
 }
 
 data "aws_iam_instance_profile" "ec2_profile" {
-  name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"release")}_asg_profile"
+  name = "${lookup(local.webapp_stacklabels,"appname" )}_asg_profile"
 }
 
 data "aws_subnet" "public_subnet_az_a" {
