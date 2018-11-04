@@ -12,16 +12,16 @@ data "aws_iam_instance_profile" "ec2_profile" {
 }
 
 data "aws_subnet" "public_subnet_az_a" {
- tags =  {  Name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"region")}_a_public_subnet" }
+ tags =  {  Name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"region")}a_public_subnet" }
       }
 
 data "aws_subnet" "public_subnet_az_b" {
- tags =  {  Name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"region")}_b_public_subnet" }
+ tags =  {  Name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"region")}b_public_subnet" }
   }
 
 
 data "aws_subnet" "public_subnet_az_c" {
-   tags =  {  Name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"region")}_c_public_subnet" }
+   tags =  {  Name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"region")}c_public_subnet" }
 }
 
 data "aws_ami" "ec2-linux" {
