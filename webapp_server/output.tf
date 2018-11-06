@@ -20,5 +20,5 @@ output "alb_targetgroup_arn" {
 }
 
 output "alb_targetgroup_arn" {
-    value = "${{module.webappasg.albtargetgroup_arn}"
+    value = "${module.webappasg.albtargetgroup_arn}"
 }
