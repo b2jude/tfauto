@@ -97,7 +97,7 @@ resource "aws_alb_target_group" "alb_targetgroup_webapp" {
         {
           key = "Name"
           value = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}"
-          propagate_at_lauch = true
+          propagate_at_launch = true
         }
     ]
 }
