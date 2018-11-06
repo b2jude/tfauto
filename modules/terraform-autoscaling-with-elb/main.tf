@@ -15,7 +15,7 @@ resource "aws_launch_configuration" "asg_lc" {
   }
 
   resource "aws_alb" "asgalb" {
-     name = "${lookup(var.stack_labels, "appname")}-alb"
+     name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}-alb"
      internal = false
      security_groups = ["${var.instance_securitygroup}"]
      subnets = ["${var.asg_subnets}"]
@@ -69,7 +69,7 @@ resource "aws_alb_listener" "alb_listener_webapp" {
 
  #Create a target group for alb
 resource "aws_alb_target_group" "alb_targetgroup_webapp" {
-  name = "${lookup(var.stack_labels, "appname")}-albtargetgroup"
+  name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}-albtargetgroup"
   port = "80"
   protocol = "HTTP"
   vpc_id = "${data.aws_vpc.default.id}"
