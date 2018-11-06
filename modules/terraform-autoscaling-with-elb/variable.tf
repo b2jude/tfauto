@@ -50,6 +50,9 @@ variable "interval" {
   default = "30"
 }
 */
+data "aws_vpc" "default" {
+  default = true
+}
 
 variable "maxsize" {
     default = "1"
