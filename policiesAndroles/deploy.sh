@@ -10,22 +10,22 @@ export TF_VAR_appname=${APP_NAME}
 
 
      echo "bucket=tf-developer"
-     echo "key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate"
+     echo "key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
      echo "profile=developer"
      echo " REGION: ${REGION}"
      echo "APP_NAME: ${APP_NAME}"
      echo "SUBSYSTEM: ${SUBSYSTEM}"
      echo "ENVIRONMENT: ${ENVIRONMENT}"
-     echo "RELEASE: ${RELEASE}"
+     echo "STACK_VERSION: ${STACK_VERSION}"
      echo "`pwd`"
      rm -Rf ./.terraform
      echo "`pwd`"
-     
+
      which terraform
-     
+
      terraform init \
      -backend-config="bucket=tf-developer" \
-     -backend-config="key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${RELEASE}.tfstate" \
+     -backend-config="key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
 
