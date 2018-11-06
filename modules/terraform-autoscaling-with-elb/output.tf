@@ -1,15 +1,23 @@
-output "elb_name" {
-  value = ["${aws_elb.asgelb.name}"]
+output "alb_name" {
+  value = ["${aws_alb.asgalb.name}"]
 }
 
 output "asg_name" {
     value = "${aws_autoscaling_group.web_appasg.name}"
 }
 
-output "elb_dnsname" {
-    value = "${aws_elb.asgelb.dns_name}"
+output "alb_dnsname" {
+    value = "${aws_alb.asgalb.dns_name}"
 }
 
-output "elb_launch_config_name" {
+output "alb_launch_config_name" {
     value = "${aws_launch_configuration.asg_lc.name}"
+}
+
+output "albtargetgroup_arn" {
+    value = "${aws_alb_target_group.alb_targetgroup_webapp.arn}"
+}
+
+output "albtargetgroup_arn" {
+    value = "${aws_alb_target_group.alb_targetgroup_webapp.name}"
 }
