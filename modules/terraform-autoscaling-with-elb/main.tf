@@ -69,7 +69,7 @@ resource "aws_alb_listener" "alb_listener_webapp" {
 
  #Create a target group for alb
 resource "aws_alb_target_group" "alb_targetgroup_webapp" {
-  name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_alb_target_group"
+  name = "${lookup(var.stack_labels, "appname")}_alb_target_group"
   port = "80"
   protocol = "HTTP"
   vpc_id = "${data.aws_vpc.default.id}"
