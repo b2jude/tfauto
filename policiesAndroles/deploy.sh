@@ -5,6 +5,7 @@ echo "Your COMMAND is: ${COMMAND}"
 
 export TF_VAR_region=${REGION}
 export TF_VAR_appname=${APP_NAME}
+export TF_VAR_stack_version=${STACK_VERSION}
 
      echo "****** backend configuration options ************"
 
