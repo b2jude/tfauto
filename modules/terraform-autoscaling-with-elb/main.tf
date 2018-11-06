@@ -19,7 +19,7 @@ resource "aws_launch_configuration" "asg_lc" {
      internal = false
      security_groups = ["${var.instance_securitygroup}"]
      subnets = ["${var.asg_subnets}"]
-     enable_delete_protection = false
+     enable_deletion_protection = false
 
      /*
      #subnets = ["${split(",", var.asg_vpc_zone_subnets)}"]
@@ -56,7 +56,7 @@ resource "aws_launch_configuration" "asg_lc" {
   }
 
 # Create listener
-resource "aws_alb_listener" alb_listener_webapp {
+resource "aws_alb_listener" "alb_listener_webapp" {
  load_balancer_arn = "${aws_alb.asgalb.arn}"
  port = "80"
  protocol = "HTTP"
