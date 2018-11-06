@@ -2,7 +2,7 @@
 
 # The user data is backed inside the blue and green images. No nned to add user data here
 resource "aws_launch_configuration" "asg_lc" {
-  name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_asg_lc"
+  name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}_asg_lc"
   image_id = "${var.ami_id}"
   instance_type = "${var.instancetype}"
   security_groups = ["${var.instance_securitygroup}"]
@@ -49,7 +49,7 @@ resource "aws_launch_configuration" "asg_lc" {
     tags = [
         {
           key = "Name"
-          value = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}"
+          value = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}"
           propagate_at_lauch = true
         },
     ]
@@ -78,7 +78,7 @@ resource "aws_alb_target_group" "alb_targetgroup_webapp" {
 
   resource "aws_autoscaling_group" "web_appasg" {
     depends_on = ["aws_launch_configuration.asg_lc"]
-    name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_asg"
+    name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}_asg"
     launch_configuration = "${aws_launch_configuration.asg_lc.name}"
     #availability_zones = ["${split(",", var.asg_availability_zones)}"]
     vpc_zone_identifier = ["${var.asg_subnets}"]
@@ -96,7 +96,7 @@ resource "aws_alb_target_group" "alb_targetgroup_webapp" {
     tags = [
         {
           key = "Name"
-          value = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}"
+          value = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}"
           propagate_at_launch = true
         }
     ]

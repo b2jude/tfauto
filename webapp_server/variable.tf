@@ -23,13 +23,13 @@ variable "webapp_desirecapacity" {}
 #variable "webapp_interval" {}
 
 
-variable "release" {}
+variable "stack_version" {}
 variable "region" {}
 
 locals {
   webapp_stacklabels = {
      appname = "${var.webapp_appname}"
-      release = "${var.release}"
+      stack_version = "${var.stack_version}"
       region =  "${var.region}"
   }
 }
