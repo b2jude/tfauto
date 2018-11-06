@@ -14,10 +14,10 @@ output "alb_launch_config_name" {
     value = "${aws_launch_configuration.asg_lc.name}"
 }
 
-output "albtargetgroup_arn" {
+output "alb_targetgroup_arn" {
     value = "${aws_alb_target_group.alb_targetgroup_webapp.arn}"
 }
 
-output "albtargetgroup_arn" {
+output "alb_targetgroup_arn" {
     value = "${aws_alb_target_group.alb_targetgroup_webapp.name}"
 }
