@@ -14,13 +14,18 @@ resource "aws_launch_configuration" "asg_lc" {
 
   }
 
-  resource "aws_elb" "asgelb" {
-    name = "${lookup(var.stack_labels, "appname")}-elb"
+  resource "aws_alb" "asgalb" {
+     name = "${lookup(var.stack_labels, "appname")}-alb"
+     internal = false
+     security_groups = ["${var.instance_securitygroup}"]
      subnets = ["${var.asg_subnets}"]
+     enable_delete_protection = false
+
+     /*
      #subnets = ["${split(",", var.asg_vpc_zone_subnets)}"]
      #vpc_zone_identifier = ["${var.asg_subnets}"]
-     security_groups = ["${var.instance_securitygroup}"]
-     internal = false
+
+
     listener {
       instance_port = "${var.instanceport}"
       instance_protocol = "${var.instanceprotocol}"
@@ -40,7 +45,7 @@ resource "aws_launch_configuration" "asg_lc" {
     idle_timeout = 400
     connection_draining = true
     connection_draining_timeout = 400
-
+*/
     tags = [
         {
           key = "Name"
@@ -50,22 +55,43 @@ resource "aws_launch_configuration" "asg_lc" {
     ]
   }
 
+# Create listener
+resource "aws_alb_listener" {
+ load_balancer_arn = "${aws_alb.asgalb.arn}"
+ port = "80"
+ protocol = "HTTP"
+ default_action {
+   target_group_arn = "${aws_alb_target_group.alb_targetgroup_webapp.arn}"
+   type = "forward"
+ }
+
+}
+
+ #Create a target group for alb
+resource "aws_alb_target_group" "alb_targetgroup_webapp" {
+  name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_alb_target_group"
+  port = "80"
+  protocol = "HTTP"
+  vpc_id = "${data.aws_vpc.currentvpc.id}"
+}
+
 
   resource "aws_autoscaling_group" "web_appasg" {
     depends_on = ["aws_launch_configuration.asg_lc"]
     name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_asg"
+    launch_configuration = "${aws_launch_configuration.asg_lc.name}"
     #availability_zones = ["${split(",", var.asg_availability_zones)}"]
-    vpc_zone_identifier = ["${split(",", var.asg_subnets)}"]
-    #vpc_zone_identifier = ["${var.asg_subnets}"]
+    vpc_zone_identifier = ["${var.asg_subnets}"]
     max_size = "${var.maxsize}"
     min_size = "${var.minsize}"
     desired_capacity = "${var.desirecapacity}"
     force_delete = true
     health_check_grace_period = 500
-    health_check_type = "ELB"
+    health_check_type = "EC2"
     force_delete = true
-    load_balancers = ["${aws_elb.asgelb.name}"]
-    launch_configuration = "${aws_launch_configuration.asg_lc.name}"
+    #load_balancers = ["${aws_elb.asgelb.name}"]
+    target_group_arns = ["${aws_alb_target_group.alb_targetgroup_webapp.arn}"]
+
     enabled_metrics = ["GroupMinSize","GroupMaxSize","GroupInServiceInstances","GroupPendingInstances","GroupTerminatingInstances","GroupStandbyInstances","GroupTotalInstances","GroupDesiredCapacity"]
     tags = [
         {
