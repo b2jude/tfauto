@@ -18,6 +18,6 @@ output "alb_targetgroup_arn" {
     value = "${aws_alb_target_group.alb_targetgroup_webapp.arn}"
 }
 
-output "alb_targetgroup_arn" {
+output "alb_targetgroup_name" {
     value = "${aws_alb_target_group.alb_targetgroup_webapp.name}"
 }
