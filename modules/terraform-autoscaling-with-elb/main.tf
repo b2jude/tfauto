@@ -56,7 +56,7 @@ resource "aws_launch_configuration" "asg_lc" {
   }
 
 # Create listener
-resource "aws_alb_listener" {
+resource "aws_alb_listener" alb_listener_webapp {
  load_balancer_arn = "${aws_alb.asgalb.arn}"
  port = "80"
  protocol = "HTTP"
