@@ -1,3 +1,9 @@
+/*
+data "aws_vpc" "currentvpc" {
+  tags =  {  Name = "${lookup(local.webapp_stacklabels,"appname" )}_${lookup(local.webapp_stacklabels,"region")}a_vpc" }
+}
+*/
+
 data "aws_vpc" "default" {
   default = true
 }

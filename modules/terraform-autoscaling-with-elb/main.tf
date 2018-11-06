@@ -72,7 +72,7 @@ resource "aws_alb_target_group" "alb_targetgroup_webapp" {
   name = "${lookup(var.stack_labels, "appname")}.v.${lookup(var.stack_labels, "release")}_alb_target_group"
   port = "80"
   protocol = "HTTP"
-  vpc_id = "${data.aws_vpc.currentvpc.id}"
+  vpc_id = "${data.aws_vpc.default.id}"
 }
 
 
