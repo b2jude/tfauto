@@ -17,7 +17,7 @@ locals {
       region =  "${var.region}"
   }
 }
-
+/*
 variable "type" {
   default = "CNAME"
 }
@@ -25,3 +25,4 @@ variable "type" {
 variable "ttl" {
   default = 300
 }
+*/
