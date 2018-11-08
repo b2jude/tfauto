@@ -24,5 +24,5 @@ output "albtargetgroup_name" {
 }
 
 output "webapp_cname_record" {
-   value = "${aws_route53_record.simple_cname_record.name}" 
+   value = "${aws_route53_record.webapp_simple_cname_record.name}"
 }
