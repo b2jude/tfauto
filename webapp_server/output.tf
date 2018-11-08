@@ -22,8 +22,7 @@ output "albtargetgroup_arn" {
 output "albtargetgroup_name" {
     value = "${module.webappasg.alb_targetgroup_name}"
 }
-/*
+
 output "webapp_cname_record" {
    value = "${aws_route53_record.webapp_simple_cname_record.name}"
 }
-*/
