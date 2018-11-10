@@ -14,7 +14,6 @@ export TF_VAR_live_url=${LIVE_URL}
      echo "${REGION}"
      terraform init \
      -backend-config="bucket=tf-developer" \
-    # -backend-config="key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"

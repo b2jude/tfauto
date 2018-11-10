@@ -1,8 +1,3 @@
-provider "aws" {
-  region = "${var.region}"
-  profile = "developer"
-  alias   = "dev_account"
-}
 
 
 resource "aws_route53_record" "webapp_live_cname_record" {
