@@ -8,11 +8,12 @@ variable "stack_version" {}
 variable "webapp_appname" {}
 variable "live_url" {}
 variable "region" {}
+
 locals {
   webapp_stacklabels = {
      appname = "${var.webapp_appname}"
       stack_version = "${var.stack_version}"
-      region =  "${var.region}"
+      region = "${var.region}"
   }
 }
 
