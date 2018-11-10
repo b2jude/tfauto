@@ -1,10 +1,7 @@
 
 
 
-variable "webapp_instancetype" {}
-variable "webapp_max_size" {}
-variable "webapp_min_size" {}
-variable "webapp_desirecapacity" {}
+
 variable "stack_version" {}
 
 
