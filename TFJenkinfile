@@ -9,7 +9,8 @@ pipeline {
                 echo "executing deployment of subsystem"
                 cd ${SUBSYSTEM}
                 chmod +x ./deploy.sh
-                ./deploy.sh ${COMMAND} ${APP_NAME} ${SUBSYSTEM} ${REGION} ${ENVIRONMENT} ${STACK_VERSION} ${LIVE_URL}
+                ./deploy.sh ${COMMAND} ${APP_NAME} ${SUBSYSTEM} ${REGION} ${ENVIRONMENT} ${STACK_VERSION} ${LIVE_ALB_CNAME} ${LIVE_ALB_WEIGHT} \
+                   ${DEV_ALB_WEIGHT} ${DEV_ALB_CNAME}
                """
             }
         }

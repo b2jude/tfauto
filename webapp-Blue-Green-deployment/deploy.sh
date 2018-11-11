@@ -4,17 +4,17 @@ COMMAND=$1
 export TF_VAR_region=${REGION}
 export TF_VAR_stack_version=${STACK_VERSION}
 export TF_VAR_webapp_appname=${APP_NAME}
-export TF_VAR_live_url=${LIVE_URL}
+export TF_VAR_live_alb_cname=${LIVE_ALB_CNAME}
 
 
      echo "****** backend configuration options ************"
      echo "bucket=tf-developer"
-     echo "key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
+     echo "key=${SUBSYSTEM}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
      echo "profile=developer"
      echo "${REGION}"
      terraform init \
      -backend-config="bucket=tf-developer" \
-     -backend-config="key=${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
+     -backend-config="key=${SUBSYSTEM}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
 
