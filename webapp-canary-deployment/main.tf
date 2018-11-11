@@ -1,11 +1,11 @@
 
 
-resource "aws_route53_record" "webapp_live_cname_record" {
+resource "aws_route53_record" "canary_webapp_dev_cname_record" {
          zone_id = "Z10TFNYAKKKBN"
          name    = "www.${lookup(local.webapp_stacklabels, "appname")}${lookup(local.webapp_stacklabels,"stack_version")}-${lookup(local.webapp_stacklabels,"region")}.bmonoue.net"
          type = "${var.type}"
          ttl = "${var.ttl}"
-         records =  ["${var.live_url}"]
+         records =  ["${var.dev_alb_cname}"]
 
          set_identifier = "dev"
 
@@ -15,12 +15,12 @@ resource "aws_route53_record" "webapp_live_cname_record" {
  }
 
 
- resource "aws_route53_record" "webapp_live_cname_record" {
+ resource "aws_route53_record" "canary_webapp_live_cname_record" {
           zone_id = "Z10TFNYAKKKBN"
           name    = "www.${lookup(local.webapp_stacklabels, "appname")}${lookup(local.webapp_stacklabels,"stack_version")}-${lookup(local.webapp_stacklabels,"region")}.bmonoue.net"
           type = "${var.type}"
           ttl = "${var.ttl}"
-          records =  ["${var.live_url}"]
+          records =  ["${var.live_alb_cname}"]
 
           set_identifier = "live"
 
