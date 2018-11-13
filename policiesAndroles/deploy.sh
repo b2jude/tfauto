@@ -1,6 +1,6 @@
 #!/bin/bash
 COMMAND=$1
-echo "You are deploying ${SUBSYSTEM} \n"
+echo "You are deploying ${COMPONENT} \n"
 echo "Your COMMAND is: ${COMMAND}"
 
 export TF_VAR_region=${REGION}
@@ -11,11 +11,11 @@ export TF_VAR_stack_version=${STACK_VERSION}
 
 
      echo "bucket=tf-developer"
-     echo "key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
+     echo "key=${APP_NAME}/${COMPONENT}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
      echo "profile=developer"
      echo " REGION: ${REGION}"
      echo "APP_NAME: ${APP_NAME}"
-     echo "SUBSYSTEM: ${SUBSYSTEM}"
+     echo "COMPONENT: ${COMPONENT}"
      echo "ENVIRONMENT: ${ENVIRONMENT}"
      echo "STACK_VERSION: ${STACK_VERSION}"
      echo "`pwd`"
@@ -26,7 +26,7 @@ export TF_VAR_stack_version=${STACK_VERSION}
 
      terraform init \
      -backend-config="bucket=tf-developer" \
-     -backend-config="key=${APP_NAME}/${SUBSYSTEM}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
+     -backend-config="key=${APP_NAME}/${COMPONENT}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
 
