@@ -9,12 +9,12 @@ export TF_VAR_live_alb_cname=${LIVE_ALB_CNAME}
 
      echo "****** backend configuration options ************"
      echo "bucket=tf-developer"
-     echo "key=${SUBSYSTEM}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
+     echo "key=${COMPONENT}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
      echo "profile=developer"
      echo "${REGION}"
      terraform init \
      -backend-config="bucket=tf-developer" \
-     -backend-config="key=${SUBSYSTEM}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
+     -backend-config="key=${COMPONENT}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
 
