@@ -11,12 +11,12 @@ export TF_VAR_dev_alb_weight=$((DEV_ALB_WEIGHT))
 
      echo "****** backend configuration options ************"
      echo "bucket=tf-developer"
-     echo "key=${SUBSYSTEM}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
+     echo "key=${COMPONENT}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
      echo "profile=developer"
      echo "${REGION}"
      terraform init \
      -backend-config="bucket=tf-developer" \
-     -backend-config="key=${SUBSYSTEM}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
+     -backend-config="key=${COMPONENT}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=developer"
 
