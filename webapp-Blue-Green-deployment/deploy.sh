@@ -4,7 +4,7 @@ COMMAND=$1
 export TF_VAR_region=${REGION}
 export TF_VAR_stack_version=${STACK_VERSION}
 export TF_VAR_webapp_appname=${APP_NAME}
-export TF_VAR_live_alb_cname=${LIVE_ALB_CNAME}
+export TF_VAR_live_alb_cname=${LIVE_ALB_DNSNAME}
 
 
      echo "****** backend configuration options ************"
