@@ -1,3 +1,3 @@
 
-appname = "webapp"
-region = "us-east-1"
+#appname = "webapp"
+#region = "us-east-1"
