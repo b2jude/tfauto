@@ -10,7 +10,7 @@ export TF_VAR_stack_version=${STACK_VERSION}
      echo "****** backend configuration options ************"
 
 
-     echo "bucket=tf-developer"
+     echo "bucket=tf-admin"
      echo "key=${APP_NAME}/${COMPONENT}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
      echo "profile=developer"
      echo " REGION: ${REGION}"
