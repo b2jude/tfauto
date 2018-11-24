@@ -4,6 +4,10 @@ COMMAND=$1
 export TF_VAR_region=${REGION}
 export TF_VAR_stack_version=${STACK_VERSION}
 export TF_VAR_webapp_appname=${APP_NAME}
+export TF_VAR_live_alb_cname=${LIVE_ALB_DNSNAME}
+export TF_VAR_live_alb_weight=$((LIVE_ALB_WEIGHT))
+export TF_VAR_dev_alb_cname=${DEV_ALB_DNSNAME}
+export TF_VAR_dev_alb_weight=$((DEV_ALB_WEIGHT))
 
      echo "****** backend configuration options ************"
      echo "bucket=tf-developer"

@@ -1,12 +1,15 @@
 
 
-
+variable dev_alb_weight {}
+variable live_alb_weight {}
 
 variable "stack_version" {}
 
 
 variable "webapp_appname" {}
 variable "live_alb_cname" {}
+variable "dev_alb_cname" {}
+
 variable "region" {}
 
 locals {
