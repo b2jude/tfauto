@@ -3,3 +3,8 @@ provider "aws" {
   profile = "admin"
 
 }
+provider "aws" {
+  region = "${var.region}"
+  profile = "dev"
+
+}
