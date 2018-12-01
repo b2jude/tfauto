@@ -14,7 +14,10 @@ export TF_VAR_webapp_appname=${APP_NAME}
      -backend-config="bucket=tf-developer" \
      -backend-config="key=${COMPONENT}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
-     -backend-config="profile=developer"
+     -backend-config="profile=devaccount" \
+     -backend-config="encrypt=true" \
+     -backend-config="kms_key_id=arn:aws:kms:us-east-1:151679033716:key/584061c0-751a-4385-9477-509907111345"
+    echo "backend created"
 
 if [ "${COMMAND}" = 'plan' ];
  then
