@@ -2,7 +2,8 @@
 
 provider "aws" {
   region = "${var.region}"
-  profile = "developer"
+  profile = "devaccount"
+  alias = "dev.account"
 }
 
 module "webappasg" {
