@@ -1,10 +1,11 @@
 
-
+/*
 provider "aws" {
   region = "${var.region}"
   profile = "devaccount"
   alias = "dev.account"
 }
+*/
 
 module "webappasg" {
  source = "../modules/terraform-autoscaling-with-elb"
