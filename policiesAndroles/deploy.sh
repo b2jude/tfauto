@@ -10,7 +10,7 @@ export TF_VAR_stack_version=${STACK_VERSION}
      echo "****** backend configuration options ************"
 
 
-     echo "bucket=tf-admin"
+     echo "bucket=tf-developer"
      echo "key=${APP_NAME}/${COMPONENT}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
      echo "profile=devaccount"
      echo " REGION: ${REGION}"
@@ -25,7 +25,7 @@ export TF_VAR_stack_version=${STACK_VERSION}
      which terraform
 
      terraform init \
-     -backend-config="bucket=tf-admin" \
+     -backend-config="bucket=tf-developer" \
      -backend-config="key=${APP_NAME}/${COMPONENT}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
      -backend-config="profile=devaccount"
