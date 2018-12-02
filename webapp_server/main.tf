@@ -1,11 +1,11 @@
 
 
-provider "aws" {
-  region = "${var.region}"
-  profile = "developer"
-}
+
+
+
 
 module "webappasg" {
+
  source = "../modules/terraform-autoscaling-with-elb"
  stack_labels = "${local.webapp_stacklabels}"
  ami_id = "${data.aws_ami.ec2-linux.id}"

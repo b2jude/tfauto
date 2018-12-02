@@ -10,13 +10,15 @@ export TF_VAR_live_alb_cname=${LIVE_ALB_DNSNAME}
      echo "****** backend configuration options ************"
      echo "bucket=tf-developer"
      echo "key=${COMPONENT}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate"
-     echo "profile=developer"
+     echo "profile=devaccount"
      echo "${REGION}"
      terraform init \
      -backend-config="bucket=tf-developer" \
      -backend-config="key=${COMPONENT}/${APP_NAME}/${REGION}/${ENVIRONMENT}/${STACK_VERSION}.tfstate" \
      -backend-config="region=${REGION}" \
-     -backend-config="profile=developer"
+     -backend-config="profile=devaccount" \
+     -backend-config="encrypt=true" \
+     -backend-config="kms_key_id=arn:aws:kms:us-east-1:633215889360:key/f3db0336-2252-445c-aa21-d1d1edb75963"
 
 if [ "${COMMAND}" = 'plan' ];
  then

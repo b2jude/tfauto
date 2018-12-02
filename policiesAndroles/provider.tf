@@ -1,5 +1,13 @@
+/*
 provider "aws" {
   region = "${var.region}"
-  profile = "developer"
-  
+  profile = "admin"
+  alias = "adminaccount"
+}
+*/
+
+provider "aws" {
+  region = "${var.region}"
+  profile = "devaccount"
+  alias = "dev.account"
 }

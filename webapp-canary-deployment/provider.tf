@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
-  profile = "developer"
-
+  region = "${var.region}"
+  profile = "devaccount"
+  alias = "dev.account"
 }
