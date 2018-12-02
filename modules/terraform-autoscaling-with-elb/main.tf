@@ -1,4 +1,4 @@
-
+/*
 provider "aws" {
 
   alias = "sharedservice"
@@ -11,6 +11,7 @@ data "aws_caller_identity" "current" {
   provider = "aws.sharedservice"
 
 }
+*/
 
 # The user data is backed inside the blue and green images. No nned to add user data here
 resource "aws_launch_configuration" "asg_lc" {
@@ -93,7 +94,7 @@ resource "aws_alb_target_group" "alb_targetgroup_webapp" {
 
 
   resource "aws_autoscaling_group" "web_appasg" {
-    
+
     depends_on = ["aws_launch_configuration.asg_lc"]
     name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}_asg"
     launch_configuration = "${aws_launch_configuration.asg_lc.name}"
