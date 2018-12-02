@@ -14,7 +14,7 @@ data "aws_caller_identity" "current" {
 
 # The user data is backed inside the blue and green images. No nned to add user data here
 resource "aws_launch_configuration" "asg_lc" {
-  provider = "aws.sharedservice"
+
   name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}_asg_lc"
   image_id = "${var.ami_id}"
   instance_type = "${var.instancetype}"
@@ -28,7 +28,7 @@ resource "aws_launch_configuration" "asg_lc" {
   }
 
   resource "aws_alb" "asgalb" {
-     provider = "aws.sharedservice"
+
      name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}-alb"
      internal = false
      security_groups = ["${var.instance_securitygroup}"]
@@ -71,7 +71,7 @@ resource "aws_launch_configuration" "asg_lc" {
 
 # Create listener
 resource "aws_alb_listener" "alb_listener_webapp" {
- provider = "aws.sharedservice"
+
  load_balancer_arn = "${aws_alb.asgalb.arn}"
  port = "80"
  protocol = "HTTP"
@@ -84,7 +84,7 @@ resource "aws_alb_listener" "alb_listener_webapp" {
 
  #Create a target group for alb
 resource "aws_alb_target_group" "alb_targetgroup_webapp" {
-   provider = "aws.sharedservice"
+
   name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}-albtargetgroup"
   port = "80"
   protocol = "HTTP"
@@ -93,7 +93,7 @@ resource "aws_alb_target_group" "alb_targetgroup_webapp" {
 
 
   resource "aws_autoscaling_group" "web_appasg" {
-    provider = "aws.sharedservice"
+    
     depends_on = ["aws_launch_configuration.asg_lc"]
     name = "${lookup(var.stack_labels, "appname")}${lookup(var.stack_labels, "stack_version")}_asg"
     launch_configuration = "${aws_launch_configuration.asg_lc.name}"
